@@ -6,22 +6,32 @@ import { withRouter } from 'react-router-dom';
 
 // @withRouter
 
-export default class NavLeft extends React.Component {
-  // getImg (key) {
-  //   console.log(key)
-  //   return key
+class NavLeft extends React.Component {
+  // getImg (item) {
+  //   console.log(item)
+  //   return item
   // }
   renderNav () {
+    let pathname = this.props.location.pathname
     return (
       <ul>
         {
           menus.map((item, index)=>{
-            return (
-                <NavLink to={item.key}  className='nav_item' key={item.key}>
+            if (pathname === item.key) {
+              return (
+                <NavLink to={item.key}  className='nav_item' key={index}>
+                  <img src={item.activeicon} alt=""/>
+                  <p>{item.label}</p>
+                </NavLink>
+              )
+            }else {
+              return (
+                <NavLink to={item.key}  className='nav_item' key={index}>
                   <img src={item.icon} alt=""/>
                   <p>{item.label}</p>
                 </NavLink>
-            )
+              )
+            }
           })
         }
       </ul>
@@ -37,3 +47,5 @@ export default class NavLeft extends React.Component {
     )
   }
 }
+
+export default withRouter(NavLeft)

@@ -13,7 +13,7 @@ class App extends React.Component {
       <div className="App">
         <Row>
           <Col span={3} className='NavLeft'>
-            <NavLeft></NavLeft>
+            <NavLeft history={this.props.history}></NavLeft>
           </Col>
           <Col span={21} className='content_right'>
             <Layout className='content_layout'>
