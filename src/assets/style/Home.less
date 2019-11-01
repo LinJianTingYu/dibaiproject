@@ -33,6 +33,44 @@
             width: 100%;
             height: 100%; 
         }
+        .map_control {
+            width: 160px;
+            height: 32px;
+            background: white;
+            padding: 5px 10px;
+            box-sizing: border-box;
+            position: absolute;
+            top: 5px;
+            right: 110px;
+            display: flex;
+            .map_control_item {
+                flex: 1;
+                display: flex;
+                color: #666666;
+                align-items: center;
+                font-size: 13px;
+                cursor: pointer;
+                &:nth-child(1) {
+                    border-right: 1px solid rgba(238,238,238,1);
+                    margin-right: 8px;
+                    img {
+                        width: 20px;
+                        height: 22px;
+                    }
+                }
+                img {
+                    width: 22px;
+                    height: 22px;
+                }
+                span {
+                    flex: 1;
+                    text-align: center;
+                    &.active {
+                        color: #009cf9;
+                    }
+                }
+            }
+        }
     }
     .info_wrapper {
         height: 35%;
@@ -44,14 +82,67 @@
             height: 100%;
             background: white;
         }
+        .title {
+            margin-bottom: 0;
+            line-height: 30px;
+            font-size: 16px;
+        }
         .user_info {
             width: 30%;
+            font-size: 12px;
+            .user_info_box {
+                width: 100%;
+                box-sizing: border-box;
+                padding: 0 10px;
+                border-bottom: 1px solid rgba(238,238,238,1);
+                > li {
+                    display: flex;
+                    div:nth-child(1) {
+                      width: 52%;
+                    }
+                    span {
+                        color: #A2A2A2;
+                        margin-left: 5px;
+                    }
+                }
+
+            }
+            .contact_box {
+                width: 100%;
+                box-sizing: border-box;
+                padding: 0 10px;
+                margin-top: 5px;
+                >li {
+                    .contact_item {
+                        width: 100%;
+                    }
+                }
+            }
         }
         .health_info {
             width: 24%;
         }
         .alarm_info {
             width: 44%;
+            .alarm_wrapper {
+                padding: 0 15px;
+                font-size: 13px;
+                .alarm_info_item {
+                    display: flex;
+                    align-items: top;
+                    margin: 5px 0;
+                    img {
+                       width: 13px;
+                       height: 15px;
+                       margin-right: 10px;
+                       margin-top: 2px;
+                    }
+                }
+            }
         }
     }
+}
+
+ul {
+    margin-bottom: 0;
 }

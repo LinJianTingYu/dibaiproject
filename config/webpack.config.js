@@ -693,7 +693,7 @@ module.exports = function(webpackEnv) {
     // our own hints via the FileSizeReporter
     performance: false,
     externals:{
-      'BMap':'BMap',
+      'AMap':'AMap',
       }
   };
 };

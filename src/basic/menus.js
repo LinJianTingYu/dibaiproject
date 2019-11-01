@@ -36,7 +36,7 @@ export const menus = [
         label: '消息中心',
         key: '/admin/message',
         icon: require('../assets/images/nav/messagecenter_IC_gray.png'),
-        activeicon: require('../assets/images/nav/usermanagement_IC_highlight.png'),
+        activeicon: require('../assets/images/nav/message center_IC_highlight.png'),
         children: []
     },
     {
