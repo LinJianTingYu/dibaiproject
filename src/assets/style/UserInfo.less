@@ -14,12 +14,59 @@
         font-size: 13px;
         font-weight:530;
         background:rgba(255,170,69,1);
-border-radius:5px;
+        border-radius:5px;
         img {
           width: 20px;
           height: 18px;
+          margin-right: 5px;
         }
       }
     }
   }
+  section {
+    margin-top: 10px;
+  }
+  .user_total {
+    display: flex;
+    > div {
+      width: 230px;
+      height: 90px;
+      margin-right: 20px;
+      border-radius: 5px;
+      box-sizing: border-box;
+      padding: 15px;
+      display: flex;
+      flex-direction: column;
+      color: white;
+      .title {
+        font-size: 18px;
+        line-height: 25px;
+      }
+      .num {
+        font-size: 35px;
+        line-height: 40px;
+        text-align: center;
+      }
+    }
+    .total_user {
+      background-size: cover;
+      background: url('../images/user/totlepeople_bg.png') no-repeat center center;
+    }
+    .manage_user {
+      background: url('../images/user/manager_bg.png') no-repeat center center;
+    }
+    .employee_user {
+      background: url('../images/user/taffy_bg.png') no-repeat center center;
+    }
+  }
+}
+.ant-table-pagination.ant-pagination {
+  margin: 10px 0;
+}
+.ant-table-small > .ant-table-content > .ant-table-body {
+  background: white;
+  margin: 0;
+}
+thead {
+  background: #BDD9FF;
 }

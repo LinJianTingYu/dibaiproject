@@ -3,7 +3,7 @@ import '../../assets/style/User.module.less'
 import { NavLink, withRouter } from 'react-router-dom'
 
 class User extends React.Component {
-  renderNav() {
+  renderNav () {
     const navs = [
       {
         label: '用户信息',
@@ -32,7 +32,7 @@ class User extends React.Component {
       })
     )
   }
-  render() {
+  render () {
     return (
       <div className='user'>
         <div className="user_nav">

@@ -1,53 +1,138 @@
 import React, { Component, Fragment } from 'react'
-import { Input, Select, Radio, Form, Table } from 'antd'
+import { Input, Select, Radio, Form, Table, Pagination } from 'antd'
 import '../../assets/style/UserInfo.less'
+import { getPagination } from '../../basic/config.js'
 const FormItem = Form.Item
 const { Search } = Input
 const { Option } = Select
 
 export default class UserInfo extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.state = {
       columns: [
         {
+          title: '序号',
+          className: 'table_header',
+          render: (text, record, index) => `${index + 1}`,
+        },
+        {
           title: '姓名',
-          dataIndex: 'id'
-        }, {
-          title: '性别',
+          className: 'table_header',
           dataIndex: 'name'
         }, {
+          title: '性别',
+          className: 'table_header',
+          dataIndex: 'sex'
+        }, {
           title: '员工ID',
-          dataIndex: 'mode',
-          render (mode) {
-            return mode === 1 ? '停车点' : '禁停区';
-          }
+          className: 'table_header',
+          dataIndex: 'ID',
+          // render (mode) {
+          //   return mode === 1 ? '停车点' : '禁停区';
+          // }
         }, {
           title: '生日',
-          dataIndex: 'op_mode',
-          render (op_mode) {
-            return op_mode == 1 ? '自营' : '加盟';
-          }
+          className: 'table_header',
+          dataIndex: 'birth',
+          // render (op_mode) {
+          //   return op_mode == 1 ? '自营' : '加盟';
+          // }
         }, {
           title: '一级部门',
-          dataIndex: 'franchisee_name'
+          className: 'table_header',
+          dataIndex: 'firstDepartment'
         }, {
           title: '所属岗位',
-          dataIndex: 'city_admins',
-          render (arr) {
-            return arr.map((item) => {
-              return item.user_name;
-            }).join(',');
-          }
+          className: 'table_header',
+          dataIndex: 'station',
+          // render (arr) {
+          //   return arr.map((item) => {
+          //     return item.user_name;
+          //   }).join(',');
+          // }
         }, {
           title: '操作',
-          dataIndex: 'open_time'
+          dataIndex: 'operation'
         }
       ],
-      cities: []
+      cities: [
+        {
+          key: '1',
+          name: 'John Brown',
+          ID: 12,
+          sex: '男',
+          birth: '2018-08-09',
+          firstDepartment: 'ss',
+          station: '行政部'
+        },
+        {
+          key: '2',
+          name: 'John Brown',
+          ID: 12,
+          sex: '男',
+          birth: '2018-08-09',
+          firstDepartment: 'ss',
+          station: '行政部'
+        },
+        {
+          key: '3',
+          name: 'John Brown',
+          ID: 12,
+          sex: '男',
+          birth: '2018-08-09',
+          firstDepartment: 'ss',
+          station: '行政部'
+        },
+        {
+          key: '4',
+          name: 'John Brown',
+          ID: 12,
+          sex: '男',
+          birth: '2018-08-09',
+          firstDepartment: 'ss',
+          station: '行政部'
+        },
+        {
+          key: '5',
+          name: 'John Brown',
+          ID: 12,
+          sex: '男',
+          birth: '2018-08-09',
+          firstDepartment: 'ss',
+          station: '行政部'
+        },
+        {
+          key: '6',
+          name: 'John Brown',
+          ID: 12,
+          sex: '男',
+          birth: '2018-08-09',
+          firstDepartment: 'ss',
+          station: '行政部'
+        },
+        {
+          key: '7',
+          name: 'John Brown',
+          ID: 12,
+          sex: '男',
+          birth: '2018-08-09',
+          firstDepartment: 'ss',
+          station: '行政部'
+        },
+        {
+          key: '1',
+          name: 'John Brown',
+          ID: 12,
+          sex: '男',
+          birth: '2018-08-09',
+          firstDepartment: 'ss',
+          station: '行政部'
+        }
+      ]
     }
   }
-  renderHeader() {
+  renderHeader () {
     return (
       <Fragment>
         <Form layout="inline" className='form_box'>
@@ -80,18 +165,36 @@ export default class UserInfo extends Component {
         </Form>
         <div className='btns'>
           <div>
-            <img src={require('../../assets/images/user/print_IC.png')} alt=""/>
+            <img src={require('../../assets/images/user/print_IC.png')} alt="" />
             <span>打印</span>
           </div>
           <div>
-            <img src={require('../../assets/images/user/import_IC.png')} alt=""/>
+            <img src={require('../../assets/images/user/import_IC.png')} alt="" />
             <span>一键导入</span>
           </div>
         </div>
       </Fragment>
     )
   }
-  render() {
+  renderFooter () {
+    return (
+      <Fragment>
+        <div className='total_user'>
+          <span className="title">总人数</span>
+          <span className="num">999</span>
+        </div>
+        <div className='manage_user'>
+          <span className="title">管理人员</span>
+          <span className="num">99</span>
+        </div>
+        <div className='employee_user'>
+          <span className="title">普通员工</span>
+          <span className="num">900</span>
+        </div>
+      </Fragment>
+    )
+  }
+  render () {
     const rowSelection = {
       // selectedRowKeys,
       // onChange: this.onSelectChange,
@@ -103,12 +206,16 @@ export default class UserInfo extends Component {
         </header>
         <section>
           <Table
-            // pagination={getPagination(this.state.cities)}
+            pagination={getPagination(this.state.cities)}
+            size='mini'
             rowSelection={rowSelection}
             bordered size='small'
             columns={this.state.columns}
             dataSource={this.state.cities} />
         </section>
+        <footer className='user_total'>
+          {this.renderFooter()}
+        </footer>
       </div>
     )
   }
