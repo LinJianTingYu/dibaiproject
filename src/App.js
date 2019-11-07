@@ -4,7 +4,7 @@ import 'antd/dist/antd.css'
 
 import NavLeft from './components/NavLeft/NavLeft'
 import ContentHeader from './components/Header'
-import { Row, Col, Layout } from 'antd'
+import { Layout } from 'antd'
 const { Header, Content } = Layout
 
 class App extends React.Component {

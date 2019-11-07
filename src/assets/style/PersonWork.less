@@ -1,0 +1,61 @@
+.personwork {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #F3F3F3;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  .person_work_header {
+    display: flex;
+    align-items: center;
+    height: 40px;
+    background: white;
+    img {
+      width: 8px;
+      height: 10px;
+      margin-right: 10px;
+      margin-left: 10px;
+    }
+  }
+  .person_work_content {
+    padding: 7px 0 0 7px;
+    display: flex;
+    flex:1;
+    >div {
+      height: 100%;
+    }
+    .worker_left {
+      width: 280px;
+      padding: 20px 0;
+      background: white;
+      text-align: center;
+      p {
+        margin: 7px 0 0;
+        span:nth-child(1){
+          text-align: right;
+          display: inline-block;
+          width: 140px;
+          font-weight: 550;
+          margin-right: 10px;
+
+        }
+        span:nth-child(2){
+          text-align: left;
+          display: inline-block;
+          width: 130px;
+        }
+      }
+     }
+    .worker_middle {
+      flex: 1;
+      margin: 0 5px;
+     }
+    .worker_right {
+      width: 270px;
+      background: white;
+    }
+  }
+}

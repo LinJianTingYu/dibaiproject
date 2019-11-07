@@ -1,5 +1,5 @@
 import React from 'react'
-import '../../assets/style/User.module.less'
+import '../../assets/style/User.less'
 import { NavLink, withRouter } from 'react-router-dom'
 
 class User extends React.Component {

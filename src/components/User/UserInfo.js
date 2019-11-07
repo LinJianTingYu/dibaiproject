@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react'
-import { Input, Select, Radio, Form, Table, Pagination } from 'antd'
+import { Input, Select, Radio, Form, Table } from 'antd'
 import '../../assets/style/UserInfo.less'
 import { getPagination } from '../../basic/config.js'
 const FormItem = Form.Item
@@ -13,38 +13,31 @@ export default class UserInfo extends Component {
       columns: [
         {
           title: '序号',
-          className: 'table_header',
           render: (text, record, index) => `${index + 1}`,
         },
         {
           title: '姓名',
-          className: 'table_header',
           dataIndex: 'name'
         }, {
           title: '性别',
-          className: 'table_header',
           dataIndex: 'sex'
         }, {
           title: '员工ID',
-          className: 'table_header',
           dataIndex: 'ID',
           // render (mode) {
           //   return mode === 1 ? '停车点' : '禁停区';
           // }
         }, {
           title: '生日',
-          className: 'table_header',
           dataIndex: 'birth',
           // render (op_mode) {
           //   return op_mode == 1 ? '自营' : '加盟';
           // }
         }, {
           title: '一级部门',
-          className: 'table_header',
           dataIndex: 'firstDepartment'
         }, {
           title: '所属岗位',
-          className: 'table_header',
           dataIndex: 'station',
           // render (arr) {
           //   return arr.map((item) => {
@@ -209,7 +202,7 @@ export default class UserInfo extends Component {
             pagination={getPagination(this.state.cities)}
             size='mini'
             rowSelection={rowSelection}
-            bordered size='small'
+            size='small'
             columns={this.state.columns}
             dataSource={this.state.cities} />
         </section>

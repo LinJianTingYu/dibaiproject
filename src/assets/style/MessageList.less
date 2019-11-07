@@ -1,0 +1,39 @@
+
+    .latest_message_box {
+      background: white;
+      .message_item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: #ABABAB;
+        &.new {
+          color: black;
+        }
+        >div {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+        .radius {
+          display: inline-block;
+          width: 5px;
+          height: 5px;
+          background: red;
+          border-radius: 50%;
+          margin-right: 5px;
+          &.new {
+            background: #ABABAB;
+          }
+        }
+        .message_info {
+          position: relative;
+          img {
+            position: absolute;
+            width: 25px;
+            height: 18px;
+            right: -20px;
+            top: -7px;
+          }
+        }
+      }
+    }

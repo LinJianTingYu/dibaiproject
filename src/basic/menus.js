@@ -58,7 +58,7 @@ export const menus = [
     label: '工效管理',
     key: '/admin/work',
     icon: require('../assets/images/nav/workefficiencymanagement_IC_gray.png'),
-    activeicon: require('../assets/images/nav/usermanagement_IC_highlight.png'),
+    activeicon: require('../assets/images/nav/workefficiency management_IC_highlight.png'),
     children: []
   },
   {
@@ -66,7 +66,7 @@ export const menus = [
     label: '设备管理',
     key: '/admin/devices',
     icon: require('../assets/images/nav/equipment management_IC_gray.png'),
-    activeicon: require('../assets/images/nav/usermanagement_IC_highlight.png'),
+    activeicon: require('../assets/images/nav/equipment management_IC_highlight.png'),
     children: []
   }
 
