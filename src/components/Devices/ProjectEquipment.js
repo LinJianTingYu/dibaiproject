@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { Table, Form, Select, Button, Modal, Input } from 'antd'
 import Search from 'antd/lib/input/Search'
+import Avatar from '../uploadimg'
 import { getPagination } from '../../basic/config.js'
 const { Option } = Select
 const FormItem = Form.Item
@@ -128,23 +129,26 @@ function ModalForm (props) {
     wrapperCol: { span: 19 }
   }
   return (
-    <Form>
-      <FormItem label='设备id：' {...formItemLayout}>
-        <Input></Input>
-      </FormItem>
-      <FormItem label='设备类型：' {...formItemLayout}>
-        <Select></Select>
-      </FormItem>
-      <FormItem label='所属部门：' {...formItemLayout}>
-        <Input></Input>
-      </FormItem>
-      <FormItem label='负责人：' {...formItemLayout}>
-        <Select></Select>
-      </FormItem>
-      <FormItem label='所在位置' {...formItemLayout}>
-        <Input></Input>
-      </FormItem>
-    </Form>
+    <Fragment>
+      <Form>
+        <FormItem style={{ margin: 0 }} label='设备id：' {...formItemLayout}>
+          <Input></Input>
+        </FormItem>
+        <FormItem style={{ margin: 0 }} label='设备类型：' {...formItemLayout}>
+          <Select></Select>
+        </FormItem>
+        <FormItem style={{ margin: 0 }} label='所属部门：' {...formItemLayout}>
+          <Input></Input>
+        </FormItem>
+        <FormItem style={{ margin: 0 }} label='负责人：' {...formItemLayout}>
+          <Select></Select>
+        </FormItem>
+        <FormItem style={{ margin: 0 }} label='所在位置' {...formItemLayout}>
+          <Input></Input>
+        </FormItem>
+      </Form>
+      <Avatar />
+    </Fragment>
   )
 }
 
@@ -162,5 +166,6 @@ function TableView (props) {
       dataSource={props.data} style={{ marginTop: 7 }}></Table>
   )
 }
+
 
 export default ProjectEquipment

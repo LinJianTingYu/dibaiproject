@@ -1,8 +1,11 @@
 import React, { Fragment } from 'react'
 import { withRouter } from 'react-router-dom'
+import { Modal, Input } from 'antd'
+import { sendMessage } from '../../api/message'
 import AlarmMessage from '../../components/Message/AlarmMessage'
 import MessageList from '../../components/Message/MessageList'
 import '../../assets/style/Message.less'
+const { TextArea } = Input
 // import { List } from 'antd'
 // const ListItem = List.Item
 
@@ -11,6 +14,8 @@ class Message extends React.Component {
     super(props)
     this.state = {
       isShowMessageInfo: false,
+      isShowSend: false,
+      sendmessage: '',
       currentTitle: '',
       messages: [
         // 'Kate在（请获取他当前报警的位置）进行了S0S紧急报警，请尽快采取措施。',
@@ -83,30 +88,67 @@ class Message extends React.Component {
       isShowMessageInfo: true
     })
   }
+  showSendMessage = () => {
+    this.setState({
+      isShowSend: true
+    })
+  }
+  // 发送消息
+  sendMessage = async () => {
+    const { sendmessage } = this.setState
+    this.setState({
+      isShowSend: false
+    })
+    if (!sendmessage) return
+    const res = await sendMessage()
+  }
+  // 更新输入框内容
+  changeMessage = event => {
+    this.setState({
+      sendmessage: event.target.value
+    })
+  }
   backHistory = () => {
     this.setState({
       isShowMessageInfo: false
     })
   }
   render () {
+    const { sendmessage, isShowSend, isShowMessageInfo, messages, currentTitle } = this.state
     return (
       <div className='message'>
         <ul className='message_header'>
-          <HeaderView routeChange={this.routeChange}></HeaderView>
+          <HeaderView routeChange={this.routeChange} showSendMessage={this.showSendMessage}></HeaderView>
         </ul>
         <div className='latest_message_wrapper'>
           <h3>最新消息</h3>
-          <MessageList messages={this.state.messages} title=''></MessageList>
+          <MessageList messages={messages} title=''></MessageList>
         </div>
         {
-          this.state.isShowMessageInfo ? <AlarmMessage title={this.state.currentTitle} backHistory={this.backHistory}></AlarmMessage> : null
+          isShowMessageInfo ? <AlarmMessage title={currentTitle} backHistory={this.backHistory}></AlarmMessage> : null
         }
+        {isShowSend ? <ModalView sendMessage={this.sendMessage} sendmessage={sendmessage} changeMessage={this.changeMessage} /> : null}
       </div>
     )
   }
 }
 
 export default withRouter(Message)
+
+function ModalView (props) {
+  return (
+    <Modal
+      title="输入发送信息"
+      visible={true}
+      onOk={props.sendMessage}
+      cancelText='取消'
+      okText='确认'
+      onCancel={props.sendMessage}
+    >
+      <TextArea onInput={props.changeMessage} rows={5} value={props.sendmessage} />
+    </Modal>
+  )
+}
 
 function HeaderView (props) {
   return (
@@ -129,7 +171,7 @@ function HeaderView (props) {
           <span className="num">345</span><span className="title">语音消息</span>
         </div>
       </li>
-      <li className='message_item' onClick={() => props.routeChange('send')}>
+      <li className='message_item' onClick={props.showSendMessage}>
         <img src={require('../../assets/images/message/send_messages_IC.png')} alt="" />
         <div className="message_info"><span className="num">879</span><span className="title">发送消息</span></div>
       </li>

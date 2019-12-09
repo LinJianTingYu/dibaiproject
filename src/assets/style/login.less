@@ -1,0 +1,86 @@
+.login {
+  position: relative;
+  height: 100vh;
+  background: url('../images/login/bg.png') no-repeat center center;
+  background-size: cover;
+  .login_box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    padding: 50px 90px;
+    box-sizing: border-box;
+    width: 500px;
+    height: 370px;
+    background:rgba(200,223,255,1);
+    border:1px solid rgba(0,104,250,1);
+    box-shadow:0px 2px 5px 0px rgba(0,43,102,0.3);
+    border-radius:10px;
+    text-align: center;
+  }
+  .login_header {
+    font-size:20px;
+    font-family:'Microsoft YaHei';
+    font-weight:400;
+    color:rgba(0,107,255,1);
+    font-weight: 540;
+  }
+  .form_item {
+    position: relative;
+    height: 38px;
+    border:1px solid rgba(69,147,255,1);
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    margin-top: 35px;
+    img {
+      width: 18px;
+      height: 20px;
+      margin-right: 7px;
+    }
+    input {
+      flex: 1;
+      padding-left: 7px;
+      border: none;
+      background: transparent;
+      outline: none;
+      border-left: 1px solid rgba(126,169,229,1);
+    }
+  }
+  .forgetPass {
+    position: absolute;
+    right: 0;
+    top: 37px;
+    font-size:12x;
+    font-family:Microsoft YaHei;
+    font-weight:400;
+    color:rgba(0,94,225,1);
+    cursor: pointer;
+  }
+  .info {
+    position: absolute;
+    top: 37px;
+    left: 0;
+    margin: 0;
+    text-align: left;
+    align-items: center;
+    font-size:10px;
+    color: red;
+    display: none;
+    img {
+      width: 10px;
+      height: 10px;
+      margin-right: 5px;
+    }
+  }
+  .loginbtn {
+    height: 38px;
+    font-family:'Microsoft YaHei';
+    font-weight:400;
+    color:rgba(255,255,255,1);
+    background:rgba(69,147,255,1);
+    line-height: 38px;
+    margin-top: 35px;
+    cursor: pointer;
+  }
+}

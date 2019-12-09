@@ -1,0 +1,99 @@
+.userdetail {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #F3F3F3;
+  bottom: 0;
+  right: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  .ant-modal-body {
+    padding: 0;
+  }
+  .ant-modal {
+    width: 700px !important;
+  }
+  .ant-modal-footer {
+    border: none;
+  }
+  .userdetail_header{
+    display: flex;
+    align-items: center;
+    height: 40px;
+    background: white;
+    img {
+      width: 8px;
+      height: 10px;
+      margin-right: 10px;
+      margin-left: 10px;
+    }
+  }
+  .detail_content {
+    flex: 1;
+    padding: 7px 0;
+    .top {
+      display: flex;
+      .userinfo {
+        width: 440px;
+        background: white;
+        display: flex;
+        font-size: 12px;
+        color: black;
+        padding: 15px 0;
+        .user_info_l {
+          display: flex;
+          flex-direction: column;
+          width: 90px;
+          padding: 0 15px;
+          >span {
+            line-height: 25px;
+          }
+          >img {
+            width: 60px;
+            height: 60px;
+            border-redius: 5px;
+          }
+          .sendmessage {
+            cursor: pointer;
+            position: relative;
+            img {
+              width: 60px;
+              height: 20px;
+            }
+            >span {
+              position: absolute;
+              display: inline-block;
+              left: 20px;
+            }
+          }
+        }
+        .user_info_r {
+          flex: 1;
+          border-left: 1px solid rgba(234,234,234,1);
+          .info {
+            display: flex;
+            flex-direction: column;
+            padding: 0 10px 10px;
+            border-bottom: 1px solid rgba(234,234,234,1);
+            >span {
+              line-height: 22px;
+            }
+          }
+          .contact {
+            display: flex;
+            flex-direction: column;
+            padding: 10px 10px 0;
+            >span {
+              line-height: 22px;
+            }
+          }
+        }
+      }
+      .map {
+        flex: 1;
+        background: red;
+      }
+    }
+  }
+}

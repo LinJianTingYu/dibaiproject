@@ -35,7 +35,50 @@
       background: white;
     }
 
-    ul {}
+    .amap-logo {
+      display: none !important;
+    }
+
+    .amap-copyright {
+      display: none !important;
+    }
+
+    .ajax-loading .overlay {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 100vw;
+      z-index: 9998;
+      background: #ffffff;
+      opacity: 0.1;
+    }
+
+    .ajax-loading .loading {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+      padding: 0 40px;
+      height: 80px;
+      line-height: 80px;
+      background: rgba(0, 0, 0, 0.75);
+      border-radius: 6px;
+      text-align: center;
+      z-index: 9999;
+      font-size: 16px;
+      color: #fff;
+    }
+
+    .ajax-loading .loading img {
+      width: 32px;
+      vertical-align: middle;
+    }
+
+    .ajax-loading .loading span {
+      margin-left: 12px;
+    }
   </style>
   <title>React App</title>
 </head>
@@ -43,6 +86,13 @@
 <body>
   <noscript>You need to enable JavaScript to run this app.</noscript>
   <div id="root"></div>
+  <div class="ajax-loading" id="ajaxLoading" style='display: none;'>
+    <div class="overlay"></div>
+    <div class="loading">
+      <img src='../src/assets/images/loading.gif' alt="">
+      <span>加载中，请稍后...</span>
+    </div>
+  </div>
   <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.

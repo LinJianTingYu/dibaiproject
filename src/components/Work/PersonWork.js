@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import Mycalendar from 'rc-calendar'
-import moment from "moment"
+import AMap from 'AMap'
+import echarts from 'echarts'
+import 'echarts/lib/echarts'
 import '../../assets/style/PersonWork.less'
 
 class PersonWork extends Component {
@@ -14,6 +16,70 @@ class PersonWork extends Component {
   }
   componentDidMount () {
   }
+
+  // 初始化地图
+  initMap () {
+    let amap = new AMap.Map('map', {
+      // 调整窗口大小
+      resizeEnable: true,
+      // 设置中心点
+      // center: this.center,
+      // 地图显示范围
+      zoom: 15
+    })
+    // 添加卫星地图层
+    let satellite = new AMap.TileLayer.Satellite()
+    satellite.setMap(amap)
+    satellite.hide()
+    // 添加测距
+    let range = new AMap.RangingTool(amap)
+    let geocoder
+    AMap.plugin(['AMap.Geocoder'], () => {
+      geocoder = new AMap.Geocoder({
+        radius: 1000,
+        extensions: 'all'
+      })
+      this.setState({
+        map: amap,
+        satellite,
+        range,
+        geocoder
+      }, () => {
+        // this.draeArea()
+      })
+    })
+  }
+  // initEcharts 
+  initEcharts () {
+    var myChart = echarts.init(document.getElementById('echarts'))
+    var option = {
+      title: {
+        text: '今年出勤情况'
+      },
+      xAxis: {
+        type: 'category',
+        data: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月']
+      },
+      yAxis: {
+        type: 'value'
+      },
+      series: [{
+        data: [23, 21, 20, 19, 25, 24, 26, 29, 27, 28, 30, 29],
+        type: 'bar',
+        label: {
+          normal: {
+            show: true,
+            position: 'top'
+          }
+        },
+      }]
+    }
+    myChart.setOption(option)
+  }
+  componentDidMount () {
+    this.initMap()
+    this.initEcharts()
+  }
   render () {
     const workerInfo = this.props.workerInfo
     return (
@@ -21,7 +87,13 @@ class PersonWork extends Component {
         <HeaderView title={workerInfo.name} backHistory={this.props.backHistory}></HeaderView>
         <div className='person_work_content'>
           <WorkLeft></WorkLeft>
-          <div className='worker_middle'>worker_middle
+          <div className='worker_middle'>
+            <div className="map">
+              <div className="mapcontanier" id='map'></div>
+            </div>
+            <div className="check">
+              <div id="echarts"></div>
+            </div>
           </div>
           <div className='worker_right'>
             <Mycalendar

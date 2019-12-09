@@ -52,6 +52,25 @@
     .worker_middle {
       flex: 1;
       margin: 0 5px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      .map {
+        height: 59%;
+        background: red;
+        position: relative;
+        .mapcontanier {
+          width: 100%;
+          height: 100%;
+        }
+      }
+      .check {
+        height: 40%;
+        #echarts {
+          width: 100%;
+          height: 100%;
+        }
+      }
      }
     .worker_right {
       width: 270px;

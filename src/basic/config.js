@@ -1,10 +1,13 @@
-export function getPagination (data, pageSize) {
+export function getPagination (total, pageSize, callback) {
   return {
     // current: 2,
     pageSize: pageSize || 8,
-    total: data.length, // 
-    onShowSizeChange (a, b) {
-      console.log(a, b)
+    total, // 
+    // onShowSizeChange (a, b) {
+    //   console.log(a, b)
+    // },
+    onChange (page, pageSize) {
+      callback({ page: page })
     }
   }
 }

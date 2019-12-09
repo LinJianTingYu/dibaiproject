@@ -17,6 +17,9 @@ import UserInfo from './components/User/UserInfo'
 import Organization from './components/User/Organization'
 import UserAdmin from './components/User/UserAdmin'
 
+function isLogin () {
+  console.log(1)
+}
 const Router = () =>
   <BrowserRouter>
     <Switch>

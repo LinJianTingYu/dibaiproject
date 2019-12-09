@@ -11,7 +11,7 @@ export const menus = [
   {
     name: 'User',
     label: '用户管理',
-    key: '/admin/user/info',
+    key: '/admin/user',
     icon: require('../assets/images/nav/user management_IC_gray.png'),
     activeicon: require('../assets/images/nav/usermanagement_IC_highlight.png'),
     children: [

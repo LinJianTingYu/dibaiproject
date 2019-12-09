@@ -50,6 +50,7 @@ class Work extends React.Component {
     ]
     const columns = [
       {
+        key: 'jj',
         title: '序号',
         render: (text, record, index) => `${index + 1}`
       },
